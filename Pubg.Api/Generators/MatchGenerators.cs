@@ -14,12 +14,12 @@ namespace Pubg.Api.Generators
 
         public MatchGenerator(int teamSize = 2)
         {
-            _shardId = Guid.NewGuid().ToString();
             _teamSize = teamSize;
         }
 
         public Match GenerateMatch(string id = "")
         {
+            _shardId = Guid.NewGuid().ToString();
             id = string.IsNullOrWhiteSpace(id) ? Guid.NewGuid().ToString() : id;
 
             var match = new Match
@@ -70,7 +70,8 @@ namespace Pubg.Api.Generators
                 rosters.Add(GenerateRoster(_teamSize));
             }
 
-            rosters[0].Won = "Yes";
+            var randomWinner = new Random().Next(0, maxTeams);
+            rosters[randomWinner].Won = "Yes";
 
             return rosters.ToArray();
         }

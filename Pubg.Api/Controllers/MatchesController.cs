@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Pubg.Api.Models;
 using Pubg.Api.Generators;
@@ -6,11 +7,11 @@ using Pubg.Api.Generators;
 namespace Pubg.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/matches")]
+    [Route("/matches")]
     public class MatchesController : Controller
     {
         [HttpGet]
-        public IEnumerable<Match> Get()
+        public IActionResult Get()
         {
             var numMatches = 5;
 
@@ -23,13 +24,21 @@ namespace Pubg.Api.Controllers
                 matches.Add(gen.GenerateMatch());
             }
 
-            return matches;
+            return Ok(matches);
         }
 
-        [HttpGet("{id}")]
-        public Match Get(string matchId)
+        [HttpGet("{matchId}")]
+        public IActionResult Get(string matchId)
         {
-            return new MatchGenerator().GenerateMatch(matchId);
+            if(matchId == Guid.Empty.ToString())
+            {
+                return NotFound(new
+                {
+                    Title = "Not Found"
+                });
+            }
+
+            return Ok(new MatchGenerator().GenerateMatch(matchId));
         }
     }
 }
