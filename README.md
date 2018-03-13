@@ -11,7 +11,7 @@ You can test for a non-existant match with the ID: `00000000-0000-0000-0000-0000
 
 ## Examples
 
-* Staus
+* Status
 
 `https://pubg-api-globalelitist.herokuapp.com/status`
 
