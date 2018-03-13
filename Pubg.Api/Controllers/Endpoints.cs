@@ -7,11 +7,11 @@ using Pubg.Api.Generators;
 namespace Pubg.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("/matches")]
-    public class MatchesController : Controller
+    [Route("/shards/{shardId}")]
+    public class Endpoints : Controller
     {
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("matches")]
+        public IActionResult GetMatches()
         {
             var numMatches = 5;
 
@@ -30,8 +30,8 @@ namespace Pubg.Api.Controllers
             });
         }
 
-        [HttpGet("{matchId}")]
-        public IActionResult Get(string matchId)
+        [HttpGet("matches/{matchId}")]
+        public IActionResult GetMatch(string matchId)
         {
             if (matchId == Guid.Empty.ToString())
             {
@@ -47,6 +47,15 @@ namespace Pubg.Api.Controllers
             return Ok(new Response
             {
                 Data = new MatchGenerator().GenerateMatch(matchId)
+            });
+        }
+
+        [HttpGet("status")]
+        public IActionResult GetStatus()
+        {
+            return Ok(new Response
+            {
+                Data = new Status()
             });
         }
     }
