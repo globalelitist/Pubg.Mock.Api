@@ -21,9 +21,9 @@ You can test for a non-existant match with the ID: `00000000-0000-0000-0000-0000
 
 * Specific match (With response code: 200)
 
-`https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/123/`
-`https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/3349ee41-bcdc-4dde-8fa0-1baedbabce7e`
-`https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/alphabet/`
+- `https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/123/` 
+- `https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/3349ee41-bcdc-4dde-8fa0-1baedbabce7e` 
+- `https://pubg-api-globalelitist.herokuapp.com/shards/pc-eu/matches/alphabet/` 
 
 * Specific match (With response code: 404)
 
