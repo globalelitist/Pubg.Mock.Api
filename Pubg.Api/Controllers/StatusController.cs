@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pubg.Api.Models;
 
 namespace Pubg.Api.Controllers
@@ -14,7 +9,10 @@ namespace Pubg.Api.Controllers
     {
         public IActionResult Get()
         {
-            return Ok(new Status());
+            return Ok(new Response
+            {
+                Data = new Status()
+            });
         }
     }
 }

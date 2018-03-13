@@ -24,21 +24,30 @@ namespace Pubg.Api.Controllers
                 matches.Add(gen.GenerateMatch());
             }
 
-            return Ok(matches);
+            return Ok(new Response
+            {
+                Data = matches
+            });
         }
 
         [HttpGet("{matchId}")]
         public IActionResult Get(string matchId)
         {
-            if(matchId == Guid.Empty.ToString())
+            if (matchId == Guid.Empty.ToString())
             {
-                return NotFound(new
+                return NotFound(new Response
                 {
-                    Title = "Not Found"
+                    Data = new
+                    {
+                        Title = "Not Found"
+                    }
                 });
             }
 
-            return Ok(new MatchGenerator().GenerateMatch(matchId));
+            return Ok(new Response
+            {
+                Data = new MatchGenerator().GenerateMatch(matchId)
+            });
         }
     }
 }
