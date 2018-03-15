@@ -2,6 +2,9 @@
 {
     public class MatchRounds
     {
-        public object[] Data { get; set; }
+        public object[] Data { get; set; } = new[]
+        {
+            new { }
+        };
     }
 }

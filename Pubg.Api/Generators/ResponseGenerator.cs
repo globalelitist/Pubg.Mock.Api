@@ -1,5 +1,6 @@
 ﻿using Pubg.Api.Models;
 using Pubg.Api.Models.Included;
+using Pubg.Api.Models.Match;
 
 namespace Pubg.Api.Generators
 {
@@ -16,23 +17,26 @@ namespace Pubg.Api.Generators
             response.Included = new IncludedResource[playerAmount + participantAmount + rosterAmount];
 
             int i = 0;
-            do
-            {
-                response.Included[i++] = GeneratePlayer(shardId);
-            }
+            do { response.Included[i++] = GeneratePlayer(shardId); }
             while (i < playerAmount);
 
-            do
-            {
-                response.Included[i++] = GenerateParticipant(shardId);
-            }
+            do { response.Included[i++] = GenerateParticipant(shardId); }
             while (i < playerAmount + participantAmount);
 
-            do
-            {
-                response.Included[i++] = GenerateRoster(shardId);
-            }
+            do { response.Included[i++] = GenerateRoster(shardId); }
             while (i < playerAmount + participantAmount + rosterAmount);
+
+            response.Data = new[]
+            {
+                new Match
+                {
+                    Attributes = new MatchAttributes
+                    {
+                        ShardId = shardId
+                    }
+                }
+            };
+
 
             return response;
         }

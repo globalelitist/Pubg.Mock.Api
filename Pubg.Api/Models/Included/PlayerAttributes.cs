@@ -8,7 +8,7 @@
 
         public string PatchVersion { get; set; } = "";
 
-        public object Stats { get; set; }
+        public object Stats { get; set; } = new { };
 
         public string TitleId { get; set; } = "bluehole-pubg";
     }

@@ -11,12 +11,12 @@
 
         public string PatchVersion { get; set; } = "";
 
-        public object Stats { get; set; }
+        public object Stats { get; set; } = new { };
 
         public string ShardId { get; set; } = "pc-eu"; //EU BEST U
 
         public string TitleId { get; set; } = "bluehole-pubg";
 
-        public object Tags { get; set; } //no idea
+        public object Tags { get; set; } = new { };//no idea
     }
 }

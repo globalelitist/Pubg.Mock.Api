@@ -4,7 +4,7 @@
     {
         public RosterAttributes(string shardId) : base(shardId) { }
 
-        public RosterStats Stats { get; set; }
+        public RosterStats Stats { get; set; } = new RosterStats();
 
         public string Won { get; set; } = "false";
     }

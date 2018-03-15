@@ -8,6 +8,6 @@ namespace Pubg.Api.Models.Included
 
         public string Actor { get; set; } = "";
 
-        public ParticipantStats Stats { get; set; }
+        public ParticipantStats Stats { get; set; } = new ParticipantStats();
     }
 }
