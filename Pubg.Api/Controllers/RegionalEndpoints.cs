@@ -17,7 +17,7 @@ namespace Pubg.Api.Controllers
 
             var gen = new MatchGenerator();
 
-            var matches = new List<Match>(numMatches);
+            var matches = new List<MatchAttributes>(numMatches);
 
             for (int i = 0; i < numMatches; i++)
             {
