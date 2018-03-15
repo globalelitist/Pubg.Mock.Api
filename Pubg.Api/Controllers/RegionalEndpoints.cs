@@ -11,43 +11,21 @@ namespace Pubg.Api.Controllers
     public class RegionalEndpoints : Controller
     {
         [HttpGet("matches")]
-        public IActionResult GetMatches()
+        public IActionResult GetMatches(string shardId)
         {
-            var numMatches = 5;
-
-            var gen = new MatchGenerator();
-
-            var matches = new List<MatchAttributes>(numMatches);
-
-            for (int i = 0; i < numMatches; i++)
-            {
-                matches.Add(gen.GenerateMatch());
-            }
-
-            return Ok(new Response
-            {
-                Data = matches
-            });
+            //stub
+            return Ok();
         }
 
         [HttpGet("matches/{matchId}")]
-        public IActionResult GetMatch(string matchId)
+        public IActionResult GetMatch(string matchId, string shardId)
         {
             if (matchId == Guid.Empty.ToString())
             {
-                return NotFound(new Response
-                {
-                    Data = new
-                    {
-                        Title = "Not Found"
-                    }
-                });
+                return NotFound();
             }
 
-            return Ok(new Response
-            {
-                Data = new MatchGenerator().GenerateMatch(matchId)
-            });
+            return Ok(ResponseGenerator.GenerateResponse(2, shardId));
         }
     }
 }

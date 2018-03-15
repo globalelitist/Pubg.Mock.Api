@@ -1,11 +1,10 @@
 ﻿using Pubg.Api.Models.Included;
-using Pubg.Api.Models.Match;
 
-namespace Pubg.Api.Controllers
+namespace Pubg.Api.Models
 {
     public class Response
     {
-        public Match[] Data { get; set; }
+        public object[] Data { get; set; }
 
         public object[] Errors { get; set; }
 

@@ -1,7 +1,9 @@
 ﻿namespace Pubg.Api.Models.Included
 {
-    public class AttributeSetA : IncludedAttribute
+    public class PlayerAttributes : IncludedAttribute
     {
+        public PlayerAttributes(string shardId) : base(shardId) { }
+
         public string Name { get; set; } = "Cc7698";
 
         public string PatchVersion { get; set; } = "";

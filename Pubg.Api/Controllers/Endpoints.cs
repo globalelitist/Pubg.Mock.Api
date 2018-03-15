@@ -10,7 +10,10 @@ namespace Pubg.Api.Controllers
         {
             return Ok(new Response
             {
-                Data = new Status()
+                Data = new[] 
+                {
+                    new Status()
+                }
             });
         }
     }

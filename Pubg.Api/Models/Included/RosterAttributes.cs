@@ -2,6 +2,8 @@
 {
     public class RosterAttributes : IncludedAttribute
     {
+        public RosterAttributes(string shardId) : base(shardId) { }
+
         public RosterStats Stats { get; set; }
 
         public string Won { get; set; } = "false";
